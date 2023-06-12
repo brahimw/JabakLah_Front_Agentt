@@ -1,0 +1,69 @@
+<div class="container-fluid loginContainer">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Connexion</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="insertForm" (ngSubmit)="submitAdminLogInForm()">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                ><i class="fas fa-user"></i
+                            ></span>
+                        </div>
+                        <input
+                            formControlName="Username"
+                            type="text"
+                            class="form-control"
+                            placeholder="username"
+                        />
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"
+                                ><i class="fas fa-key"></i
+                            ></span>
+                        </div>
+                        <input
+                            formControlName="Password"
+                            type="password"
+                            class="form-control"
+                            placeholder="password"
+                        />
+                    </div>
+                   
+                    <div class="form-group">
+                        <input
+                            type="submit"
+                            value="Login"
+                            class="btn float-right login_btn"
+                        />
+                    </div>
+                    <div id="errors">
+                        <div
+                            *ngIf="Username.touched && Username.errors"
+                            class="errorMessage"
+                        >
+                            <span *ngIf="Username.hasError('required')"
+                                >Le champ Username est requis.</span
+                            >
+                        </div>
+                        <div
+                            *ngIf="Password.touched && Password.errors"
+                            class="errorMessage"
+                        >
+                            <span *ngIf="Password.hasError('required')"
+                                > Le champ Password est requis</span
+                            >
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+               
+               
+            </div>
+        </div>
+    </div>
+</div>

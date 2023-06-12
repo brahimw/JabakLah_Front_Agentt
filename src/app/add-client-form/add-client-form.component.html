@@ -1,0 +1,152 @@
+<main  class="main">
+    <div class="container  mainContainer">
+          
+        <div class="container-fluid px-0 py-0  formContainer">
+            <div class="row d-flex justify-content-center">
+                <div class="col-6 text-center">
+                  
+                    <div class="card">
+                        <h5 class="text-center mb-4 white-text">Remplissez les informations du client ici :</h5>
+        
+                        <form class="form-card" #AgentAddForm="ngForm" (ngSubmit)="addClientFormSubmited()">
+                            
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> 
+                                    <label class="form-control-label px-3 white-text">Nom d'utilisateu
+                                        <span class="text-danger"> *</span></label>
+        
+                                         <input type="text"
+                                         [(ngModel)]="client.userName"
+                                         #FirstName="ngModel"
+                                          id="fname" 
+                                          name="fname"
+                                           placeholder="Entrer votre Prénom" 
+                                           required 
+                                           pattern="[a-zA-Z]+"> 
+                                        </div>
+                            </div>
+        
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> 
+                                    <label class="form-control-label px-3 white-text">Prénom
+                                        <span class="text-danger"> *</span></label>
+        
+                                         <input type="text"
+                                         [(ngModel)]="client.firstName"
+                                         #FirstName="ngModel"
+                                          id="fname" 
+                                          name="fname"
+                                           placeholder="Entrer Votre Prénon" 
+                                           required 
+                                           pattern="[a-zA-Z]+"> 
+                                        </div>
+        
+                                       
+                                <div class="form-group col-sm-6 flex-column d-flex"> 
+                                    <label class="form-control-label px-3 white-text">Nom
+                                        <span class="text-danger"> *</span></label> 
+                                        
+                                        <input type="text" 
+                                        [(ngModel)]="client.lastName"
+                                        #LastName="ngModel"
+                                        id="lname" 
+                                        name="lname" 
+                                        placeholder="Entrer Votre Nom" 
+                                        required
+                                        pattern="[a-zA-Z]+"> </div>
+                                        
+                                      
+                            </div>
+        
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> 
+                                    <div *ngIf="(FirstName.touched && !FirstName.valid)">
+                                        <div class="alert alert-danger" *ngIf="(FirstName.errors && FirstName.errors.required)"> Le champ Prénom est requis</div>
+                                        <div class="alert alert-danger"*ngIf="(FirstName.errors && FirstName.errors.pattern)" > Format invalide pour le prénom</div>
+                                       
+                                    </div></div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> 
+                                    <div *ngIf="(LastName.touched && !LastName.valid) ">
+                                       
+                                        <div class="alert alert-danger" *ngIf="(LastName.errors && LastName.errors.required)"> Le champ Nom est requis</div>
+                                        <div class="alert alert-danger"*ngIf="(LastName.errors && LastName.errors.pattern)" > Format invalide pour le Nom</div>
+                                    </div>
+                                    </div>
+                                </div>
+                           
+        
+                            <div class="row justify-content-between text-left">
+        
+                                <div class="form-group col-sm-6 flex-column d-flex">
+        
+                                     <label class="form-control-label px-3 white-text">Adresse Email
+                                         <span class="text-danger"> *</span></label> 
+                                         
+                                         <input type="text"
+                                         [(ngModel)]="client.email"
+                                         #AgentEmail="ngModel" 
+                                         id="Agentemail" 
+                                         name="AgentEmail" 
+                                         placeholder="Ex: john.doe@gmail.com"
+                                         required 
+                                         pattern="^[a-zA-Z0-9.]+@gmail.com$">
+                                 </div>
+        
+                                 <div class="form-group col-sm-6 flex-column d-flex">
+        
+                                    <label class="form-control-label px-3  white-text">Numéro De Tel
+                                        <span class="text-danger"> *</span></label> 
+                                        
+                                        <input type="text"
+                                        [(ngModel)]="client.phoneNumber"
+                                        #AgentPhoneNumber="ngModel" 
+                                        id="AgentPhoneNumber" 
+                                        name="AgentPhoneNumber" 
+                                        placeholder="Ex:+2126000000"
+                                        required
+                                        pattern="[0-9+]+"
+                                        minlength="10">
+                                </div>
+        
+                               
+                               
+                            </div>
+        
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> 
+                                    <div *ngIf="(AgentEmail.touched && !AgentEmail.valid)">
+                                        <div class="alert alert-danger" *ngIf="(AgentEmail.errors && AgentEmail.errors.required)">Le champ Adresse Email est requis</div>
+                                        <div class="alert alert-danger"*ngIf="(AgentEmail.errors &&AgentEmail.errors.pattern)" > Format invalide pour Adresse Email</div>
+                                       
+                                    </div></div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> 
+                                        <div *ngIf="(AgentPhoneNumber.touched && !AgentPhoneNumber.valid) ">
+                                   
+                                            <div class="alert alert-danger" *ngIf="(AgentPhoneNumber.errors && AgentPhoneNumber.errors.required)"> Le champ Numéro De Tel est requis</div>
+                                            <div class="alert alert-danger"*ngIf="(AgentPhoneNumber.errors && AgentPhoneNumber.errors.pattern)" > Format invalide pour uméro De Tel</div>
+                                            <div class="alert alert-danger"*ngIf="(AgentPhoneNumber.errors && AgentPhoneNumber.errors.minlength)" > Le numéro de téléphone doit comporter au moins 10 chiffres</div>
+                
+                                        </div>
+                                    </div>
+                                </div>
+        
+                          
+                            <div class="row justify-content-center">
+        
+                                <div class="form-group col-sm-6">
+                                    
+                                    <button type="submit" class="btn-block btn-primary">Ajouter Client</button> </div>
+        
+                            </div>
+                      
+              
+            </form>
+        
+            </div>
+        </div>
+
+          
+    </div>
+        </div>
+    </div>
+  </main>

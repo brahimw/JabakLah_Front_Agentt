@@ -1,0 +1,14 @@
+#jabakSpan{
+    font-size: 28pt;
+    color: rgb(17, 17, 18);
+    font-weight: bold;
+}
+#lahSpan{
+    font-size: 28pt;
+    color: hsl(300, 2%, 10%);
+    font-weight: bold;
+}
+.custom-bg {
+    background-color: rgb(250, 248, 248);
+    
+}

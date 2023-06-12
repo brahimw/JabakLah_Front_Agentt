@@ -1,0 +1,32 @@
+<div class="container-fluid homeContainer">
+  <div class="col-lg-6 mb-0 mb-lg-0 contentBox">
+    <h1 class="my-0 display-5 fw-bold ls-tight">Clients</h1>
+
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterClients()" placeholder="Search" />
+    </div>
+
+    <div class="table-container">
+      <table class="client-table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of filteredClients">
+            <td>{{ client.nom }}</td>
+            <td>{{ client.prenom }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.numTel }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--<button class="btn btn-light-moon" routerLink="/login">Log In to get Started</button>-->
+  </div>
+</div>
